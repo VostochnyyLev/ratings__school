@@ -78,23 +78,26 @@ const listLms = [
   },
 ];
 
-listLms.forEach(function (element) {
-  document.getElementById("window").insertAdjacentHTML(
-    "beforeend",
-    `
-    <tr>
-        <td>
-            <img src="${element.img}" alt="">
-        </td>
-        <td>
-            <div>${element.name}</div>
-            <div>${element.surname}</div>
-        </td>
-        <td>
-            <div>${element.numberDz}</div>
-            <div>${element.numberScore}</div>
-        </td>
-    </tr>
-    `
+const anyFltr = (list) => list;
+listLms
+  .filter((dzNum) => dzNum.numberDz === "7")
+  .forEach((element) =>
+    document.getElementById("window").insertAdjacentHTML(
+      "beforeend",
+      `
+      <tr>
+          <td>
+              <img src="${element.img}" alt="">
+          </td>
+          <td>
+              <div>${element.name}</div>
+              <div>${element.surname}</div>
+          </td>
+          <td>
+              <div>${element.numberDz}</div>
+              <div>${element.numberScore}</div>
+          </td>
+      </tr>
+      `
+    )
   );
-});
